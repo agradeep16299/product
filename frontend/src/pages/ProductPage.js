@@ -1,4 +1,4 @@
-import instance from "../axios";
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
@@ -20,7 +20,7 @@ function ProductPage() {
 
     const handleDragStart = (e) => e.preventDefault();
     useEffect(() => {
-        instance.get(`/products/${id}`).then(({ data }) => {
+        axios.get(`/products/${id}`).then(({ data }) => {
             setProduct(data.product);
             setSimilar(data.similar);
         });

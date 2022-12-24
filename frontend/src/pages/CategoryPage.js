@@ -1,4 +1,4 @@
-import instance from "../axios";
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
@@ -14,7 +14,7 @@ function CategoryPage() {
 
     useEffect(() => {
         setLoading(true);
-        instance
+        axios
             .get(`/products/category/${category}`)
             .then(({ data }) => {
                 setLoading(false);
