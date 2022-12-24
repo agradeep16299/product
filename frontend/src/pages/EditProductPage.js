@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Alert, Col, Container, Form, Row, Button } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import { useUpdateProductMutation } from "../services/appApi";
-import axios from "axios";
+import instance from "../axios";
 import "./NewProduct.css";
 function EditProductPage() {
     const { id } = useParams();
@@ -33,7 +33,7 @@ function EditProductPage() {
 
     function handleRemoveImg(imgObj) {
         setImgToRemove(imgObj.public_id);
-        axios
+        instance
             .delete(`/images/${imgObj.public_id}/`)
             .then((res) => {
                 setImgToRemove(null);
