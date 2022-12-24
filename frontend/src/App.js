@@ -19,8 +19,6 @@ import AdminDashboard from "./pages/AdminDashboard";
 
 
 function App() {
-    const user = useSelector((state) => state.user);
-    const dispatch = useDispatch();
     
     
     return (

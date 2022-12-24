@@ -1,6 +1,6 @@
 
 import React, { useEffect } from "react";
-import instance from "../axios";
+import axios from "axios";
 import { Col, Row } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
@@ -16,7 +16,8 @@ function Home() {
     const products = useSelector((state) => state.products);
     const lastProducts = products.slice(0,10);
     useEffect(() => {
-        instance.get("/products").then(({ data }) => dispatch(updateProducts(data)));
+        axios.get("/products").then(({ data }) => dispatch(updateProducts(data)));
+        
     }, []);
     return (
         <div className="headline">

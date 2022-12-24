@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Alert, Col, Container, Form, Row, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useCreateProductMutation } from "../services/appApi";
-import instance from "../axios";
+import axios from "axios";
 import "./NewProduct.css";
 //import MultiSelect from "react-multiple-select-dropdown-lite";
 //import "react-multiple-select-dropdown-lite/dist/index.css";
@@ -24,7 +24,7 @@ function NewProduct() {
 
     function handleRemoveImg(imgObj) {
         setImgToRemove(imgObj.public_id);
-        instance
+        axios
             .delete(`/images/${imgObj.public_id}/`)
             .then((res) => {
                 setImgToRemove(null);
